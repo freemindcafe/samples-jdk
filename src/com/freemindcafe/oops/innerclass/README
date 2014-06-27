@@ -1,0 +1,9 @@
+This package explains that nested classes visibility is applicable only while writing code.
+Once you create the objects and pass it to other packages then those objects will be 
+visible and methods can be called on them.
+
+nested static public class
+nested static private class
+
+nested public class (public inner class)
+nested private class (private inner class)
