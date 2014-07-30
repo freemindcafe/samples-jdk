@@ -1,1 +1,4 @@
 This project should have the basic jdk samples.
+
+Want an example of rmi. There should be no need to copy the stub to the client. It
+automatically gets copied to the client, how? Using URL class loader and all?
