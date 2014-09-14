@@ -1,3 +1,4 @@
 .project
 *.log
 build
+samples-jdk.jar

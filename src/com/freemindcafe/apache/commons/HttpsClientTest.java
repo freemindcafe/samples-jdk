@@ -24,7 +24,7 @@ public class HttpsClientTest
 	  	System.setProperty("javax.net.ssl.trustStore","${EIP_HOME}/conf/systemProperties/localhostkeystore");
 	  	final HttpClient client = new HttpClient();
 
-		final PostMethod post = new PostMethod("https://nikhil-vm.emeter.com:9443/");
+		final PostMethod post = new PostMethod("https://nikhil-vm.emeter.com:9443/em-cas/login");
 		String username = "abc";
 
 		post.setRequestBody(new NameValuePair[] {
