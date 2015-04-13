@@ -21,7 +21,7 @@ public class HttpsClientTest
   public void test()
   {
 	  	BasicConfigurator.configure();
-	  	System.setProperty("javax.net.ssl.trustStore","${EIP_HOME}/conf/systemProperties/localhostkeystore");
+	  	System.setProperty("javax.net.ssl.trustStore","/home/eip/conf/systemProperties/localhostkeystore");
 	  	final HttpClient client = new HttpClient();
 
 		final PostMethod post = new PostMethod("https://nikhil-vm.emeter.com:9443/em-cas/login");

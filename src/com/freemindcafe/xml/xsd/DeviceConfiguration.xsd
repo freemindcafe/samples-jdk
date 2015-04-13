@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://www.example.org/DeviceConfiguration"
+	xmlns:tns="http://www.example.org/DeviceConfiguration" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified">
+
+<xs:include schemaLocation="CalendarAndTarrif.xsd"/>
+<xs:include schemaLocation="MeterParameter.xsd"/>
+<xs:element name="DeviceConfiguration" type="tns:DeviceConfiguration">
+</xs:element>
+	<xs:complexType name="DeviceConfiguration">
+		<xs:sequence>
+			<xs:element name="meterParams" type="tns:MeterParameters" minOccurs="1" />
+			<xs:element name="calendarAndTarrif" type="tns:calendarAndTarrif" />
+		</xs:sequence>
+		<xs:attribute type="xs:string" name="deviceId" use="required"/>
+		<xs:attribute type="xs:string" name="IdRpt" />
+		<xs:attribute type="xs:byte" name="IdPet" />
+		<xs:attribute type="xs:string" name="Version" />
+	</xs:complexType>
+</schema>

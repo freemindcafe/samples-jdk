@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:DeviceConfiguration xmlns:tns="http://www.example.org/DeviceConfiguration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/DeviceConfiguration DeviceConfiguration.xsd ">
+  <tns:meterParams>tns:meterParams</tns:meterParams>
+  <tns:calendarAndTarrif>
+    <tns:Cnc>
+      <tns:Cnt>
+        <tns:CalendarAndTarrif>
+          <tns:PCact>
+            <tns:Contrato1>tns:Contrato1</tns:Contrato1>
+          </tns:PCact>
+          <tns:PCLatent>
+            <tns:Contrato1>tns:Contrato1</tns:Contrato1>
+          </tns:PCLatent>
+          <tns:ActiveCalendars/>
+          <tns:LatentCalendars/>
+        </tns:CalendarAndTarrif>
+      </tns:Cnt>
+    </tns:Cnc>
+  </tns:calendarAndTarrif>
+</tns:DeviceConfiguration>

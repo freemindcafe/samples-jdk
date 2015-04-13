@@ -1,0 +1,54 @@
+Setup
+========
+	helloworld.wsdl file had xsd types definition and wsdl service definition
+	
+	build.xml has apache-cxf-wsdl-cxfWSDLToJava target, this will generated the source code
+	under build/generated-src using xmlbeans binding.
+	
+	include build/generated-src in build path as source folder.
+	
+	Generate the Client and Server Keystores
+	---------------------------------------------
+		keytool -genkeypair -alias serverkey -keyalg RSA -dname "CN=localhost,OU=Organization Unit,O=Organization,L=City,S=State,C=IN" -keypass password -keystore serverkeystore.jks -storepass password
+		
+		keytool -genkeypair -alias clientkey -keyalg RSA -dname "CN=localhost,OU=Organization Unit,O=Organization,L=City,S=State,C=IN" -keypass password -storepass password -keystore clientkeystore.jks
+	
+	Install the client’s public certificate in to the server’s keystore
+	--------------------------------------------------------------------
+		keytool -exportcert -alias clientkey -file client-public.cer -keystore clientkeystore.jks -storepass password
+		
+		keytool -importcert -keystore serverkeystore.jks -alias clientcert -file client-public.cer -storepass password -noprompt
+		
+	Export the Server’s Public Certificate and Import it in to the client’s Keystore
+	-------------------------------------------------------------------------------
+		keytool -exportcert -alias serverkey -file server-public.cer -keystore serverkeystore.jks -storepass password
+		
+		keytool -importcert -keystore clientkeystore.jks -alias servercert -file server-public.cer -storepass password -noprompt
+	
+
+Server.java#start_server_without_ssl
+=======================================
+	Bootstraps the server. 
+	
+	It has basic auth, wsse security token as in interceptor.
+	
+	It also has out and fault interceptors.
+	
+	Interceptors prints messages on server console.
+	
+Client.java#JaxWsProxyFactoryBean_based_client
+=================================================
+	Has client code using JaxWsProxyFactoryBean. But It does not have any wsse or basic auth headers.
+
+Client.java#soap_service_based_client
+=======================================
+	Has client code using SoapService. But It does not have any wsse or basic auth headers.
+	
+SOAP UI Project
+================
+	Also has client and is best to use these clients as basic auth and wsse security headers can be easily specified.
+	
+	Mock services are of limited use as tricky to specify basic auth and wsse security setup. Moreover that wouldn't be of cxf formats. Hence
+	can not be used in real projects.
+
+

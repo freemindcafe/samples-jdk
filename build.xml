@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!-- ======================================================================= -->
+<!--                      DO NOT MODIFY THIS FILE!                           -->
+<!-- The name of the project and its version number are defined in the       -->
+<!-- build.properties file as "project.name" and "project.version"           -->
+<!-- ======================================================================= -->
+
+<project name="samples-jdk" basedir=".">
+	
+	<property name="build.dir"            	location="${basedir}/build" />
+	<property name="lib.dir"      			location="${basedir}/lib"/>
+	<property name="cxf.wsdl"      			location="${basedir}/src/com/freemindcafe/apache/cxf/wsdl"/>
+	<property name="jar.file"        		value="${project.name}"/>
+	
+	<path id="compile.classpath">
+		<!-- include this project's generated classes -->
+		<pathelement path="${build.classes.dir}"/>
+		<fileset dir="${lib.dir}">
+			<!-- exclude jar built by this project -->
+			<exclude name="${jar.file}"/>
+		</fileset>
+	</path>
+			
+	<target name="apache-cxf-wsdl-cxfWSDLToJava">
+		<java classname="org.apache.cxf.tools.wsdlto.WSDLToJava" fork="true">
+			<arg value="-verbose"/>
+			<arg value="-impl"/>
+			<arg value="-b" />
+			<arg value="${cxf.wsdl}/Export.xsdconfig"/>
+			<arg value="-db"/>
+			<arg value="xmlbeans"/>
+			<!--arg value="-p"/>
+			<arg value="http://www.emeter.com/energyip/amiinterface=com.emeter.energyip.amiinterface"/-->
+			<arg value="-wsdlLocation"/>
+			<arg value="classpath:/com/freeminscafe/apache/commons/cxf/wsdl/Shelloworld.wsdl"/>
+			<arg value="-d"/>
+			<arg value="${build.dir}/generated-src"/>			
+			<arg value="-compile"/>
+			<arg value="-classdir"/>
+			<arg value="${build.dir}/classes"/>
+			<arg value="${cxf.wsdl}/helloworld.wsdl"/>
+			<classpath>
+				<path refid="compile.classpath"/>
+			</classpath>
+		</java>
+	</target>
+	
+</project>

@@ -1,0 +1,100 @@
+Setup
+========
+	Generate the Client and Server Keystores
+	---------------------------------------------
+		keytool -genkeypair -alias serverkey -keyalg RSA -dname "CN=localhost,OU=Organization Unit,O=Organization,L=City,S=State,C=IN" -keypass password -keystore serverkeystore.jks -storepass password
+		
+		keytool -genkeypair -alias clientkey -keyalg RSA -dname "CN=localhost,OU=Organization Unit,O=Organization,L=City,S=State,C=IN" -keypass password -storepass password -keystore clientkeystore.jks
+	
+	Install the client’s public certificate in to the server’s keystore
+	--------------------------------------------------------------------
+		keytool -exportcert -alias clientkey -file client-public.cer -keystore clientkeystore.jks -storepass password
+		
+		keytool -importcert -keystore serverkeystore.jks -alias clientcert -file client-public.cer -storepass password -noprompt
+		
+	Export the Server’s Public Certificate and Import it in to the client’s Keystore
+	-------------------------------------------------------------------------------
+		keytool -exportcert -alias serverkey -file server-public.cer -keystore serverkeystore.jks -storepass password
+		
+		keytool -importcert -keystore clientkeystore.jks -alias servercert -file server-public.cer -storepass password -noprompt
+
+	Enable clientAuth in tomcat
+	-----------------------------
+		Replace tomcat's server.xml file with this server.xml file
+		Notice the clientAuth attribute in Connector element
+		Notice custom valve
+		Copy samples-jdk jar file under tomcat lib
+		Restart the tomcat
+		
+Check keystore contents
+-------------------------
+
+		keytool -list -keystore serverkeystore.jks -storepass password
+		keytool -list -v -keystore serverkeystore.jks -storepass password -alias serverkey1
+		keytool -list -v -keystore clientkeystore.jks -storepass password -alias clientkey
+	
+
+Test1
+======
+
+	ClientConnectionTest should pass.
+
+Test2
+========
+	create a new key with same CN=localhost and restart the tomcat. clientAuth will fail as for this new key-pair the corresponding public-key certificate is
+	not imported in clientkeystore
+	   
+	keytool -genkeypair -alias serverkey1 -keyalg RSA -dname "CN=localhost,OU=Organization Unit,O=Organization,L=City,S=State,C=IN" -keypass password -keystore serverkeystore.jks -storepass password
+	
+	Restart the tomcat.
+	
+	ClientConnectionTest should fail as this new certificate for 'serverkey1' is presented to client; but in client's trustStore the corresponding public certificate 
+	has not been imported.
+	
+Test3
+========
+	Delete the serverkey1 alias.
+	keytool -delete -v -keystore serverkeystore.jks -storepass passwd -alias serverkey1
+	
+	Restart the tomcat.
+	
+	ClientConnectionTest should pass.
+	
+Test4
+==========
+	Generate new clientkey and client certificate in a new client keystore clientkeystore1
+
+		keytool -genkeypair -alias clientkey -keyalg RSA -dname "CN=localhost,OU=Organization Unit,O=Organization1,L=City,S=State,C=IN" -keypass password -storepass password -keystore clientkeystore1.jks
+
+	Install the client’s public certificate in to the server’s keystore
+	
+		keytool -exportcert -alias clientkey -file client-public1.cer -keystore clientkeystore1.jks -storepass password
+		
+		keytool -importcert -keystore serverkeystore.jks -alias clientcert1 -file client-public1.cer -storepass password -noprompt
+		
+	Export the Server’s Public Certificate and Import it in to the client’s Keystore
+	
+		keytool -exportcert -alias serverkey -file server-public.cer -keystore serverkeystore.jks -storepass password
+		
+		keytool -importcert -keystore clientkeystore1.jks -alias servercert -file server-public.cer -storepass password -noprompt
+
+	ClientConnectionTest1 file points to the new client key/trust store clientkeystore1
+	ClientConnectionTest run succeeds and prints Organization at tomcat's console
+	ClientConnectionTest1 run succeeds and prints Organization1 at tomcat's console
+
+Test5
+=======
+ - Change host name to nikhil.emeter.com
+ - Delete the certificate and create a new one with CN=nikhil.emeter.com
+ 	keytool -delete -alias serverkey -keystore serverkeystore.jks -storepass password
+ 	keytool -genkeypair -alias serverkey1 -keyalg RSA -dname "CN=nikhil.emeter.com,OU=Organization Unit,O=Organization,L=City,S=State,C=IN" -keypass password -keystore serverkeystore.jks -storepass password
+  - clientAuth will fail as for this new key-pair the corresponding public-key certificate is
+   not imported in clientkeystore
+
+Test6
+========
+	Selection of serverkey does not depends on the hostname. I had nikhil.emeter.com as CN in the key. This server key was getting selected
+	though HOST setting in the Server.xml was localhost and I was hitting the URL on https://localhost:443
+	
+	??
+

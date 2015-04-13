@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="build/generated-src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="lib/commons-httpclient-3.1.jar"/>
 	<classpathentry kind="lib" path="lib/commons-net-3.3.jar"/>
@@ -16,5 +17,14 @@
 	<classpathentry kind="lib" path="lib/junit-4.8.2.jar"/>
 	<classpathentry kind="lib" path="lib/activemq-core-5.4.2.jar"/>
 	<classpathentry kind="lib" path="lib/j2ee-1.4.jar"/>
+	<classpathentry kind="lib" path="lib/catalina.jar"/>
+	<classpathentry kind="lib" path="lib/cxf/cxf-2.3.6.jar"/>
+	<classpathentry kind="lib" path="lib/cxf/velocity-1.4.jar"/>
+	<classpathentry kind="lib" path="lib/cxf/wsdl4j-1.6.2.jar"/>
+	<classpathentry kind="lib" path="lib/cxf/xbean-2.5.jar"/>
+	<classpathentry kind="lib" path="lib/cxf/XmlSchema-1.4.7.jar"/>
+	<classpathentry kind="lib" path="lib/jetty-all-7.4.2.jar"/>
+	<classpathentry kind="lib" path="lib/cxf/wss4j-1.5.8.jar"/>
+	<classpathentry kind="lib" path="lib/cxf/xmlsec-1.4.3.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
