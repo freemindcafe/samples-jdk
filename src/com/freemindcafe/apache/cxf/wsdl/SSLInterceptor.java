@@ -13,6 +13,7 @@ import org.apache.cxf.interceptor.Fault;
 import org.apache.cxf.transport.http.AbstractHTTPDestination;
 import org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor;
 
+//\cond HIDDEN_SYMBOLS
 //Phase.PRE_PROTOCOL
 public class SSLInterceptor extends WSS4JInInterceptor{
 	
@@ -38,3 +39,4 @@ public class SSLInterceptor extends WSS4JInInterceptor{
 
 
 }
+//\endcond

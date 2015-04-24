@@ -6,6 +6,7 @@ import org.apache.cxf.interceptor.Fault;
 import org.apache.cxf.phase.Phase;
 import org.apache.log4j.Logger;
 
+//\cond HIDDEN_SYMBOLS
 /***
  * 
  * @author KOMAN00S
@@ -28,3 +29,4 @@ public class SoapOutSecurityFaultInterceptor extends AbstractSoapInterceptor  {
 	}
 	
 }
+//\endcond

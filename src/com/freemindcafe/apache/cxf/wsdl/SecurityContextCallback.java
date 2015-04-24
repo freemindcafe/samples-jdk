@@ -9,6 +9,7 @@ import javax.security.auth.callback.UnsupportedCallbackException;
 import org.apache.log4j.Logger;
 import org.apache.ws.security.WSPasswordCallback;
 
+//\cond HIDDEN_SYMBOLS
 /**
  * CXF Password Callback used to retrieve username/password from web service
  * user request
@@ -49,3 +50,4 @@ public class SecurityContextCallback
 
 
 }
+//\endcond

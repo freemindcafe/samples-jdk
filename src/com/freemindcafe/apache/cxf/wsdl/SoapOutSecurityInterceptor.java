@@ -9,6 +9,7 @@ import org.apache.cxf.message.Message;
 import org.apache.cxf.phase.Phase;
 import org.apache.log4j.Logger;
 
+//\cond HIDDEN_SYMBOLS
 /***
  * 
  * @author KOMAN00S
@@ -53,3 +54,4 @@ public class SoapOutSecurityInterceptor extends AbstractSoapInterceptor  {
 	}
 
 }
+//\endcond

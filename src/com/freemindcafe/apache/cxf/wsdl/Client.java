@@ -15,6 +15,10 @@ import org.junit.Test;
 
 public final class Client {
 	
+	/**
+	 * Has client code using SoapService. But It does not have any wsse or basic auth headers.
+	 * @throws Exception
+	 */
 	@Test
 	public void soap_service_based_client() throws Exception{
 
@@ -55,6 +59,9 @@ public final class Client {
 		
 	}
 	
+	/**
+	 * Has client code using JaxWsProxyFactoryBean. But It does not have any wsse or basic auth headers.
+	 */
 	@Test
 	public void JaxWsProxyFactoryBean_based_client(){
 		JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean();

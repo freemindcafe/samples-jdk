@@ -12,6 +12,7 @@ import org.apache.cxf.phase.Phase;
 import org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor;
 import org.apache.log4j.Logger;
 
+//\cond HIDDEN_SYMBOLS
 /**
  * 
  * @author li00000y
@@ -72,3 +73,4 @@ public class WSSecurityInterceptor extends WSS4JInInterceptor{
 	}
 	
 }
+//\endcond

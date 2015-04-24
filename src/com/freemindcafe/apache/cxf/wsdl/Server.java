@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URL;
 import java.security.GeneralSecurityException;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
@@ -17,20 +18,31 @@ import javax.net.ssl.KeyManager;
 import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
+import javax.xml.namespace.QName;
 
+import org.apache.cxf.Bus;
+import org.apache.cxf.BusFactory;
 import org.apache.cxf.configuration.jsse.TLSServerParameters;
 import org.apache.cxf.configuration.security.ClientAuthentication;
 import org.apache.cxf.configuration.security.FiltersType;
 import org.apache.cxf.interceptor.LoggingInInterceptor;
 import org.apache.cxf.interceptor.LoggingOutInterceptor;
+import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.apache.cxf.jaxws.JaxWsServerFactoryBean;
 import org.apache.cxf.transport.http_jetty.JettyHTTPServerEngineFactory;
 import org.apache.hello_world_soap_http.Greeter;
 import org.apache.hello_world_soap_http.GreeterImpl;
+import org.apache.hello_world_soap_http.PingMeFault;
+import org.apache.hello_world_soap_http.SOAPService;
 import org.junit.Test;
 
 public class Server {
 	
+	/**
+	 * It has basic auth, wsse security token as in interceptor.
+	 * It also has out and fault interceptors.
+	 * Interceptors prints messages on server console.
+	 */
 	@Test
 	public void start_server_without_ssl() throws Exception{
 		
@@ -53,14 +65,112 @@ public class Server {
 		//out fault interceptor
 		svrFactory.getOutFaultInterceptors().add(new SoapOutSecurityFaultInterceptor());
 		
+		org.apache.cxf.endpoint.Server server = svrFactory.create();
+		String endpoint = server.getEndpoint().getEndpointInfo().getAddress();        
+        System.out.println("Server started at " + endpoint);
+ 
+        synchronized(server){
+        	server.wait();	
+        }	
+	}
+	
+	/**
+	 * @throws Exception
+	 */
+	@Test
+	public void start_server_without_ssl_and_use_client_in_same_jvm_with_interceptors_on_endpoint() throws Exception{
+
+		GreeterImpl implementor = new GreeterImpl();
+		JaxWsServerFactoryBean svrFactory = new JaxWsServerFactoryBean();
+		svrFactory.setServiceClass(Greeter.class);
+		svrFactory.setAddress("http://localhost:9001/SoapContext/SoapPort");
+		svrFactory.setServiceBean(implementor);
+		//in interceptors
+		svrFactory.getInInterceptors().add(new LoggingInInterceptor());
+		svrFactory.getInInterceptors().add(new BasicAuthInterceptor());
+		Map<String, Object> properties = new HashMap<>();
+		properties.put("action", "UsernameToken");
+		properties.put("passwordType", "PasswordText");
+		properties.put("passwordCallbackRef", new SecurityContextCallback());
+		svrFactory.getInInterceptors().add(new WSSecurityInterceptor(properties));		
+		// out normal response interceptor
+		svrFactory.getOutInterceptors().add(new LoggingOutInterceptor());
+		svrFactory.getOutInterceptors().add(new SoapOutSecurityInterceptor());		
+		//out fault interceptor
+		svrFactory.getOutFaultInterceptors().add(new SoapOutSecurityFaultInterceptor());
+		
 		org.apache.cxf.endpoint.Server server = svrFactory.create();		
 		String endpoint = server.getEndpoint().getEndpointInfo().getAddress();        
         System.out.println("Server started at " + endpoint);
-        server.wait();		
+        
+        //client
+		JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean();
+		factory.getInInterceptors().add(new LoggingInInterceptor());
+		factory.getOutInterceptors().add(new LoggingOutInterceptor());
+		factory.setServiceClass(Greeter.class);
+		factory.setAddress("http://localhost:9000/SoapContext/SoapPort");
+		Greeter client = (Greeter) factory.create();
+
+		client.greetMeOneWay("abc");
+	    
+        synchronized(server){
+        	server.wait();	
+        }
+        
 	}
 	
+	/**
+	 * @throws Exception
+	 */
 	@Test
-	public void start_server_with_ssl() throws Exception{
+	public void start_server_without_ssl_and_use_client_in_same_jvm_with_interceptors_on_bus() throws Exception{
+
+		Bus bus =  BusFactory.getDefaultBus();	
+		
+		GreeterImpl implementor = new GreeterImpl();
+		JaxWsServerFactoryBean svrFactory = new JaxWsServerFactoryBean();
+		svrFactory.setServiceClass(Greeter.class);
+		svrFactory.setAddress("http://localhost:9001/SoapContext/SoapPort");
+		svrFactory.setServiceBean(implementor);
+		//in interceptors
+		bus.getInInterceptors().add(new LoggingInInterceptor());
+		bus.getInInterceptors().add(new BasicAuthInterceptor());
+		Map<String, Object> properties = new HashMap<>();
+		properties.put("action", "UsernameToken");
+		properties.put("passwordType", "PasswordText");
+		properties.put("passwordCallbackRef", new SecurityContextCallback());
+		bus.getInInterceptors().add(new WSSecurityInterceptor(properties));		
+		// out normal response interceptor
+		bus.getOutInterceptors().add(new LoggingOutInterceptor());
+		bus.getOutInterceptors().add(new SoapOutSecurityInterceptor());		
+		//out fault interceptor
+		bus.getOutFaultInterceptors().add(new SoapOutSecurityFaultInterceptor());
+		
+		org.apache.cxf.endpoint.Server server = svrFactory.create();		
+		String endpoint = server.getEndpoint().getEndpointInfo().getAddress();        
+        System.out.println("Server started at " + endpoint);
+        
+        //client
+		JaxWsProxyFactoryBean factory = new JaxWsProxyFactoryBean();
+		factory.getInInterceptors().add(new LoggingInInterceptor());
+		factory.getOutInterceptors().add(new LoggingOutInterceptor());
+		factory.setServiceClass(Greeter.class);
+		factory.setAddress("http://localhost:9000/SoapContext/SoapPort");
+		Greeter client = (Greeter) factory.create();
+
+		client.greetMeOneWay("abc");
+	    
+        synchronized(server){
+        	server.wait();	
+        }
+        
+	}	
+	
+	/**
+	 * @throws Exception
+	 */
+	@Test
+	public void start_server_with_2_way_ssl() throws Exception{
 		GreeterImpl implementor = new GreeterImpl();
 		JaxWsServerFactoryBean svrFactory = new JaxWsServerFactoryBean();
 		svrFactory.setServiceClass(Greeter.class);
