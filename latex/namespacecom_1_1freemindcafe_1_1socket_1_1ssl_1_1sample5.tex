@@ -1,0 +1,51 @@
+\hypertarget{namespacecom_1_1freemindcafe_1_1socket_1_1ssl_1_1sample5}{}\section{Package com.\+freemindcafe.\+socket.\+ssl.\+sample5}
+\label{namespacecom_1_1freemindcafe_1_1socket_1_1ssl_1_1sample5}\index{com.\+freemindcafe.\+socket.\+ssl.\+sample5@{com.\+freemindcafe.\+socket.\+ssl.\+sample5}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classcom_1_1freemindcafe_1_1socket_1_1ssl_1_1sample5_1_1_echo_client_test}{Echo\+Client\+Test}
+\item 
+class \hyperlink{classcom_1_1freemindcafe_1_1socket_1_1ssl_1_1sample5_1_1_echo_server_test}{Echo\+Server\+Test}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Server has clients public certificate but it also has additional serverkey1. This keys public certificate is not imported in clients store. We need some code so that at server end based on some criterion serverkey is selected.
+
+\subsection*{Setup}
+
+\subsubsection*{Generate the Client and Server Keystores}
+
+
+\begin{DoxyItemize}
+\item keytool -\/genkeypair -\/alias serverkey -\/keyalg R\+S\+A -\/dname \char`\"{}\+C\+N=localhost,\+O\+U=\+Organization Unit,\+O=\+Organization,\+L=\+City,\+S=\+State,\+C=\+I\+N\char`\"{} -\/keypass password -\/keystore serverkeystore.\+jks -\/storepass password 
+\item keytool -\/genkeypair -\/alias clientkey -\/keyalg R\+S\+A -\/dname \char`\"{}\+C\+N=localhost,\+O\+U=\+Organization Unit,\+O=\+Organization,\+L=\+City,\+S=\+State,\+C=\+I\+N\char`\"{} -\/keypass password -\/storepass password -\/keystore clientkeystore.\+jks 
+\end{DoxyItemize}\subsubsection*{Install the client’s public certificate in to the server’s keystore}
+
+
+\begin{DoxyItemize}
+\item keytool -\/exportcert -\/alias clientkey -\/file client-\/public.\+cer -\/keystore clientkeystore.\+jks -\/storepass password 
+\item keytool -\/importcert -\/keystore serverkeystore.\+jks -\/alias clientcert -\/file client-\/public.\+cer -\/storepass password -\/noprompt 
+\end{DoxyItemize}\subsubsection*{Export the Server’s Public Certificate and Import it in to the client’s Keystore}
+
+
+\begin{DoxyItemize}
+\item keytool -\/exportcert -\/alias serverkey -\/file server-\/public.\+cer -\/keystore serverkeystore.\+jks -\/storepass password 
+\item keytool -\/importcert -\/keystore clientkeystore.\+jks -\/alias servercert -\/file server-\/public.\+cer -\/storepass password -\/noprompt 
+\end{DoxyItemize}\subsubsection*{Generate a new alias serverkey1}
+
+
+\begin{DoxyItemize}
+\item keytool -\/genkeypair -\/alias serverkey1 -\/keyalg R\+S\+A -\/dname \char`\"{}\+C\+N=localhost,\+O\+U=\+Organization Unit,\+O=\+Organization,\+L=\+City,\+S=\+State,\+C=\+I\+N\char`\"{} -\/keypass password -\/keystore serverkeystore.\+jks -\/storepass password 
+\item Do not import the public certificate corresponding to serverkey1 into clients keystore. 
+\end{DoxyItemize}\subsubsection*{Check keystore contents}
+
+
+\begin{DoxyItemize}
+\item keytool -\/list -\/keystore serverkeystore.\+jks -\/storepass password 
+\item keytool -\/list -\/v -\/keystore serverkeystore.\+jks -\/storepass password -\/alias serverkey1 
+\item keytool -\/list -\/v -\/keystore clientkeystore.\+jks -\/storepass password -\/alias clientkey 
+\begin{DoxyItemize}
+\item 
+\end{DoxyItemize}
+\end{DoxyItemize}

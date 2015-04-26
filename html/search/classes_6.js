@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['imessageprovider',['IMessageProvider',['../interfacecom_1_1freemindcafe_1_1oops_1_1innerclass_1_1library_1_1_i_message_provider.html',1,'com::freemindcafe::oops::innerclass::library']]]
+  ['httpsclienttest',['HttpsClientTest',['../classcom_1_1freemindcafe_1_1apache_1_1commons_1_1_https_client_test.html',1,'com::freemindcafe::apache::commons']]]
 ];
