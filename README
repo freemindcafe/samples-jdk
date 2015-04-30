@@ -1,4 +1,14 @@
 This project should have the basic jdk samples.
 
-Want an example of rmi. There should be no need to copy the stub to the client. It
+Few topics of interest.
+
+- cxf and apache camel transport. Soap should be supported over http, jms, smtp, file, db and what not?
+- SSL private key selection based on domain name  (com.freemindcafe.socket.ssl.sample5)
+
+wsdl
+- multiple bindings in wsdl (soap/http)
+- multiple services in same wsdl
+- multiple ports in same service
+
+- Want an example of rmi. There should be no need to copy the stub to the client. It
 automatically gets copied to the client, how? Using URL class loader and all?

@@ -27,5 +27,6 @@
 	<classpathentry kind="lib" path="lib/cxf/wss4j-1.5.8.jar"/>
 	<classpathentry kind="lib" path="lib/cxf/xmlsec-1.4.3.jar"/>
 	<classpathentry kind="lib" path="lib/cxf/jsr311-api-1.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/velocity/velocity-1.4-1.4.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
