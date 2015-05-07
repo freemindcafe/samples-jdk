@@ -2,13 +2,40 @@ This project should have the basic jdk samples.
 
 Few topics of interest.
 
+com.freemindcafe.socket.simple
+  - InetAddress
+    - host name
+    - host address
+    - address
+  - TCP Socket
+    - Getting information about socket at client/server side
+    - port
+    - local port
+    - local address
+    - Use EchoClient and EchoServer
+    - Closing a socket
+    - Half closed socket
+    - Timeout setting for client and server socket
+  - URI
+  - URL
+    - url encoding
+    - url decoding
+  - NIO Server
+    - Performance compare of normal vs NIO server
+  - Multicast sockets
+  - UDP Socket
+  
+com.freemindcafe.rmi
+  - Rmi stub 
+  - Rmi skeleton
+  - Loading classes at run time. There should be no need to copy the stub to the client. It
+    automatically gets copied to the client, how? Using URL class loader and all?
+
+
 - cxf and apache camel transport. Soap should be supported over http, jms, smtp, file, db and what not?
-- SSL private key selection based on domain name  (com.freemindcafe.socket.ssl.sample5)
 
-wsdl
-- multiple bindings in wsdl (soap/http)
-- multiple services in same wsdl
-- multiple ports in same service
+com.freemindcafe.apache.cxf.wsdl.sample2
+  - multiple bindings in wsdl (soap/http)
+  - multiple services in same wsdl
+  - multiple ports in same service
 
-- Want an example of rmi. There should be no need to copy the stub to the client. It
-automatically gets copied to the client, how? Using URL class loader and all?
