@@ -14,15 +14,15 @@ import java.io.*;
 public class EchoClientTest {
 
 	@Test
-	public void simple_client_connectes_with_server_succeeds_as_client_keystore_has_server_public_certificate_and_server_keystore_has_cleint_public_cer(){
+	public void simple_client_connectes_with_server_succeeds_as_we_use_custom_key_manager_to_choose_serverkey(){
 		try {
 			
 			System.setProperty(
-					"javax.net.ssl.trustStore","E:/personal/learnings/samples/samples-jdk/src/com/freemindcafe/socket/ssl/sample4/clientkeystore.jks");
+					"javax.net.ssl.trustStore","E:/personal/learnings/samples/samples-jdk/src/com/freemindcafe/socket/ssl/sample5/clientkeystore.jks");
 			System.setProperty("javax.net.ssl.trustStorePassword", "password");
 			System.setProperty(
 					"javax.net.ssl.keyStore",
-					"E:/personal/learnings/samples/samples-jdk/src/com/freemindcafe/socket/ssl/sample4/clientkeystore.jks");
+					"E:/personal/learnings/samples/samples-jdk/src/com/freemindcafe/socket/ssl/sample5/clientkeystore.jks");
 			System.setProperty("javax.net.ssl.keyStorePassword", "password");
 			System.setProperty("javax.net.debug", "ssl:handshake");
 			

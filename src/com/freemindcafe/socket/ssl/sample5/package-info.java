@@ -1,6 +1,7 @@
 /**
  * Server has clients public certificate but it also has additional serverkey1. This keys public certificate is not imported in clients store.
- * We need some code so that at server end based on some criterion serverkey is selected.
+ * We use custom key manager to select serverkey. If there is no custom key manager, key selection is based on some hashing algorithm which will
+ * return the keys in random order.
  * 
  * <h1>Setup</h1>
  * <h2>Generate the Client and Server Keystores</h2>
