@@ -25,7 +25,7 @@ import org.apache.cxf.jaxws.JaxWsServerFactoryBean;
 import org.apache.cxf.transport.http_jetty.JettyHTTPServerEngineFactory;
 import org.junit.Test;
 
-import com.freemindcafe.apache.cxf.wsdl.SSLInterceptor;
+import com.freemindcafe.apache.cxf.wsdl.sample1.SSLInterceptor;
 
 public class Server {
 	

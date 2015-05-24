@@ -1,4 +1,4 @@
-package com.freemindcafe.apache.cxf.wsdl;
+package com.freemindcafe.apache.cxf.wsdl.sample1;
 
 import java.io.File;
 import java.net.URL;

@@ -1,4 +1,4 @@
-package com.freemindcafe.apache.cxf.wsdl;
+package com.freemindcafe.apache.cxf.wsdl.sample1;
 import org.apache.cxf.binding.soap.interceptor.SoapHeaderInterceptor;
 import org.apache.cxf.configuration.security.AuthorizationPolicy;
 import org.apache.cxf.interceptor.Fault;

@@ -8,4 +8,4 @@
 	under build/generated-src using xmlbeans binding.
  * any javadoc comments (including tags)
  */
-package com.freemindcafe.apache.cxf.wsdl.complex;
+package com.freemindcafe.apache.cxf.wsdl.sample2;

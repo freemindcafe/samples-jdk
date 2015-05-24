@@ -1,6 +1,7 @@
 /**
  * Server has clients public certificate but it also has additional serverkey1. This keys public certificate is not imported in clients store.
- * Hence client auth fails as server sends the certficate for serverkey1.
+ * Hence client auth fails as server sends the certficate for serverkey1. Since the key selection is based upon the hashcodes of the keys, the keys
+ * will not be predictably picked.
  * 
  * <h1>Setup</h1>
  * <h2>Generate the Client and Server Keystores</h2>
@@ -29,7 +30,6 @@
  * <li>keytool -list -v -keystore serverkeystore.jks -storepass password -alias serverkey1</li>
  * <li>keytool -list -v -keystore clientkeystore.jks -storepass password -alias clientkey</li>
  * <ul>
- * 
- * http://www.smartjava.org/content/how-analyze-java-ssl-errors
+ *
  */
 package com.freemindcafe.socket.ssl.sample4;

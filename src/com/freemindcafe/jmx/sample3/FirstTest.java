@@ -1,4 +1,4 @@
-package com.freemindcafe.jmx;
+package com.freemindcafe.jmx.sample3;
 
 import javax.management.MBeanServerConnection;
 import javax.management.MBeanServerInvocationHandler;

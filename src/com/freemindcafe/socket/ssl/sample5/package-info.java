@@ -30,7 +30,6 @@
  * <li>keytool -list -v -keystore serverkeystore.jks -storepass password -alias serverkey1</li>
  * <li>keytool -list -v -keystore clientkeystore.jks -storepass password -alias clientkey</li>
  * <ul>
- * 
- * http://www.smartjava.org/content/how-analyze-java-ssl-errors
+ *
  */
 package com.freemindcafe.socket.ssl.sample5;
