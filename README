@@ -25,13 +25,6 @@ com.freemindcafe.socket.simple
   - Multicast sockets
   - UDP Socket
   
-com.freemindcafe.rmi
-  - Rmi stub 
-  - Rmi skeleton
-  - Loading classes at run time. There should be no need to copy the stub to the client. It
-    automatically gets copied to the client, how? Using URL class loader and all?
-
-
 - cxf and apache camel transport. Soap should be supported over http, jms, smtp, file, db and what not?
 
 com.freemindcafe.apache.cxf.wsdl.sample2
