@@ -1,0 +1,3 @@
+<aliasNames>
+	<class className="com.freemindcafe.serialization.sample1.Employee" aliasName="EstimetedEmployee"/>
+</aliasNames>
