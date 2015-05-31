@@ -2,7 +2,7 @@ This project should have the basic jdk samples.
 
 Few topics of interest.
 
-com.freemindcafe.socket.simple
+<h3>com.freemindcafe.socket.simple</h3>
   - InetAddress
     - host name
     - host address
@@ -27,8 +27,16 @@ com.freemindcafe.socket.simple
   
 - cxf and apache camel transport. Soap should be supported over http, jms, smtp, file, db and what not?
 
-com.freemindcafe.apache.cxf.wsdl.sample2
+<h3>com.freemindcafe.apache.cxf.wsdl.sample2</h3>
   - multiple bindings in wsdl (soap/http)
   - multiple services in same wsdl
   - multiple ports in same service
+  
+<h3>com.freemindcafe.security</h3>
+  - Protection Domain
+  - Policy file
+  - AccessController
+  - doPrivilidged use
+  - class loader and protection domain
+  - jar signing use
 
