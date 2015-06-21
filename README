@@ -1,10 +1,18 @@
-
-```html
 This project should have the basic jdk samples.
 
 Few topics of interest.
 
-<h3>com.freemindcafe.socket.simple</h3>
+DBCP 
+  - maxActive, maxIdle, maxWait, removeAbandoned, removeAbandonedTimeout verification
+  - prepared statement caching
+  - statement caching
+  - query parsing
+  - sql tracing
+  
+Concurrency
+  - java concurrency in practice examples
+
+com.freemindcafe.socket.simple<
   - InetAddress
     - host name
     - host address
@@ -29,12 +37,12 @@ Few topics of interest.
   
 - cxf and apache camel transport. Soap should be supported over http, jms, smtp, file, db and what not?
 
-<h3>com.freemindcafe.apache.cxf.wsdl.sample2</h3>
+com.freemindcafe.apache.cxf.wsdl.sample2
   - multiple bindings in wsdl (soap/http)
   - multiple services in same wsdl
   - multiple ports in same service
   
-<h3>com.freemindcafe.security</h3>
+com.freemindcafe.security
   - Protection Domain
   - Policy file
   - AccessController
