@@ -1,5 +1,7 @@
-.project
-*.log
-samples-jdk.jar
-build
+/.project
+/*.log*
+/samples-jdk.jar
+/build
+/doc
+/html
 
