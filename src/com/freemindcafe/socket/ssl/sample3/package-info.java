@@ -1,4 +1,6 @@
 /**
+ * \brief Client and server share each others key+public certificate hence client auth succeeds.
+ * 
  * Client and server share each others key+public certificate hence client auth succeeds.
  * 
  * <h1>Setup</h1>

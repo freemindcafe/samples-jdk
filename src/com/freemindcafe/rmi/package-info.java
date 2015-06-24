@@ -1,4 +1,4 @@
 /**
- * RMI samples.
+ * \brief
  */
 package com.freemindcafe.rmi;

@@ -1,4 +1,6 @@
 /**
+ * \brief Client and server do not share public certificates, hence client auth fails.
+ * 
  * Client and server do not share public certificates, hence client auth fails.
  * 
  * <h1>Setup</h1>

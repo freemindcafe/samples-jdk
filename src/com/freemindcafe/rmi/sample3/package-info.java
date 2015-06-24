@@ -1,4 +1,6 @@
 /**
+ * \brief Registry can be started from java code.rmic is not needed as well.
+ * 
  * <h1>RMI samples.</h1>
  * <ul>
  * <li>Registry can be started from java code.</li>

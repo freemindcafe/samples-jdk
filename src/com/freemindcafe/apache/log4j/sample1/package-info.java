@@ -1,4 +1,6 @@
 /**
+ * \brief Additivity can turn off the appender chaining.
+ * 
  * <p>
  * log4j uses a hierarchy of loggers. Log messages are send to all the ancestors's appenders.
  * </p>

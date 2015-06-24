@@ -1,4 +1,6 @@
 /**
+ * \brief This sample does not use JMXConnectorServer and the MBean can be accessed from jconsole.
+ * 
  * <p>
  * This sample does not use JMXConnectorServer and the MBean can be accessed from jconsole.
  * </p>

@@ -1,4 +1,7 @@
 /**
+ * \brief Xstream and Jettison based serialization
+ *        Jackson is arguably the standard Java Library for processing JSON.
+ *        
  * <p>
  * XMLAliasing provides a way to map classes to xml elements.
  * </p>

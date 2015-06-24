@@ -1,4 +1,4 @@
 /**
- * All the time zone examples.
+ * \brief
  */
 package com.freemindcafe.timezone;

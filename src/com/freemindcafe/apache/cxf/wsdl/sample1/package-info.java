@@ -1,4 +1,8 @@
 /**
+ * \brief Generates java code from xsd and wsdl. Verifies basic, wsse token and 2 way auth interceptors. 
+ * 		  Uses soap out and fault interceptors.
+ * 		  Uses SOAP UI as a client.
+ * 
  * <h1>Setup</h1>
  * <ul>
  * <li>helloworld.wsdl file had xsd types definition and wsdl service definition</li>

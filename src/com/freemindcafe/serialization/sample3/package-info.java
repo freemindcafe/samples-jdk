@@ -1,4 +1,6 @@
 /**
+ * \brief This example uses jackson library to generate JSON. Jackson is 100% JSON library.
+ * 
  * <p>
  * This example uses jackson library to generate JSON.
  * Jackson is 100% JSON library.

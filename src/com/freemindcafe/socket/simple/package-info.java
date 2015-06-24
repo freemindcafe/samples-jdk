@@ -1,5 +1,5 @@
 /**
- * Plain socket examples.
+ * \brief Plain socket examples. Incomplete??
  * 
  */
 package com.freemindcafe.socket.simple;

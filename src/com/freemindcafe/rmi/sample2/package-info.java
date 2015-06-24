@@ -1,4 +1,6 @@
 /**
+ * \brief rmic and rmiregistry is used. This one uses SecurityManager. But SecurityManager is not a must.
+ * 
  * <h1>RMI samples.</h1>
  * <p>
  * This one uses SecurityManager. But SecurityManager is not a must.

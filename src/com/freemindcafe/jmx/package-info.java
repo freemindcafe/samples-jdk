@@ -1,4 +1,6 @@
 /**
+ * \brief
+ * 
  * <h1>Server</h1>
  * <ul>
  * <li>The MBean server is a registry for MBeans.</li>

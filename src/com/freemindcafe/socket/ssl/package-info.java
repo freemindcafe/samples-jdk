@@ -1,5 +1,5 @@
 /**
- * SSL socket examples.
+ * \brief SSL socket examples.
  * 
  * http://www.smartjava.org/content/how-analyze-java-ssl-errors
  */

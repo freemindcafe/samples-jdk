@@ -1,4 +1,6 @@
 /**
+ * \brief rmic and rmiregistry is used. This one does not uses SecurityManager.
+ * 
  * <h1>RMI samples.</h1>
  * <p>
  * http://www.ejbtutorial.com/java-rmi/a-step-by-step-implementation-tutorial-for-java-rmi

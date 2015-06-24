@@ -1,4 +1,6 @@
 /**
+ * \brief This sample uses JMXConnectorServer and client uses JMXConnector to access MBean.
+ * 
  * <p>
  * This sample uses JMXConnectorServer and client uses JMXConnector to access MBean.
  * </p>

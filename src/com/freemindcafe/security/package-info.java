@@ -1,4 +1,6 @@
 /**
+ * \brief
+ * 
  * <ul>
  * <li>With out enabling SecurityManager policy file does not come in the picture.</li>
  * <li>Once SecurityManager is enabled, protection domains, permissions etc comes into life.</li>

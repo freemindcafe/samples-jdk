@@ -1,5 +1,5 @@
 /**
- * Server has clients public certificate but it also has additional serverkey1. This keys public certificate is not imported in clients store.
+ * \brief Server has clients public certificate but it also has additional serverkey1. This keys public certificate is not imported in clients store.
  * Hence client auth fails as server sends the certficate for serverkey1. Since the key selection is based upon the hashcodes of the keys, the keys
  * will not be predictably picked.
  * 
