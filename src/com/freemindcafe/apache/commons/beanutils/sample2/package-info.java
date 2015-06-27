@@ -1,4 +1,6 @@
 /**
+ * \brief BeanUtils Samples. To set and read from indexed properties.
+ * 
  * <p>
  * BeanUtils Samples.
  * There are two tests.

@@ -1,4 +1,6 @@
 /**
+ * \brief PropertyUtils Samples. To set and read from indexed properties.
+ * 
  * <p>
  * PropertyUtils Samples.
  * There are two tests.
