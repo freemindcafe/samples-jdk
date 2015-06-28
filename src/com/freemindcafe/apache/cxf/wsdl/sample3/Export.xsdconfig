@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xb:config xmlns:tns="http://www.emeter.com/energyip/meterdatainterface"
+	xmlns:meterexcel="http://www.emeter.com/energyip/meterdatainterface/excel"
+	xmlns:ami="http://www.emeter.com/energyip/amiinterface"
+	xmlns:amiexcel="http://www.emeter.com/energyip/amiinterface/excel"
+    xmlns:xb="http://xml.apache.org/xmlbeans/2004/02/xbean/config">
+
+</xb:config>

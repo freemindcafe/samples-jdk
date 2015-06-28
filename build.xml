@@ -8,8 +8,8 @@
 <project name="samples-jdk" basedir=".">
 	
 	<property name="build.dir"            	location="${basedir}/build" />
-	<property name="lib.dir"      			location="${basedir}/lib"/>
-	<property name="cxf.wsdl"      			location="${basedir}/src/com/freemindcafe/apache/cxf/wsdl"/>
+	<property name="lib.dir"      			location="${basedir}/lib-cxf-3.0.3"/>
+	<property name="cxf.wsdl"      			location="${basedir}/src/com/freemindcafe/apache/cxf/wsdl/sample1"/>
 	<property name="jar.file"        		value="${project.name}"/>
 	
 	<path id="compile.classpath">
@@ -32,7 +32,7 @@
 			<!--arg value="-p"/>
 			<arg value="http://www.emeter.com/energyip/amiinterface=com.emeter.energyip.amiinterface"/-->
 			<arg value="-wsdlLocation"/>
-			<arg value="classpath:/com/freeminscafe/apache/commons/cxf/wsdl/Shelloworld.wsdl"/>
+			<arg value="classpath:/com/freeminscafe/apache/commons/cxf/wsdl/sample1/helloworld.wsdl"/>
 			<arg value="-d"/>
 			<arg value="${build.dir}/generated-src"/>			
 			<arg value="-compile"/>
