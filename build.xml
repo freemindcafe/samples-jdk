@@ -8,7 +8,7 @@
 <project name="samples-jdk" basedir=".">
 	
 	<property name="build.dir"            	location="${basedir}/build" />
-	<property name="lib.dir"      			location="${basedir}/lib-cxf-3.0.3"/>
+	<property name="lib.dir"      			location="${basedir}/lib"/>
 	<property name="cxf.wsdl"      			location="${basedir}/src/com/freemindcafe/apache/cxf/wsdl/sample1"/>
 	<property name="jar.file"        		value="${project.name}"/>
 	
