@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src"/>
+	<classpathentry excluding="com/freemindcafe/apache/cxf/wsdl/sample3/SampleUsernameTokenValidator.java|com/freemindcafe/apache/cxf/wsdl/sample3/SecurityContextCallback.java|com/freemindcafe/apache/cxf/wsdl/sample3/Server.java" kind="src" path="src"/>
 	<classpathentry kind="src" path="build/generated-src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="lib/activemq-core-5.4.2.jar"/>
@@ -33,5 +33,6 @@
 	<classpathentry kind="lib" path="lib/serialization/jettison-1.3.jar"/>
 	<classpathentry kind="lib" path="lib/serialization/xstream-1.4.3.jar"/>
 	<classpathentry kind="lib" path="lib/velocity/velocity-1.4-1.4.jar"/>
+	<classpathentry kind="lib" path="lib/xmlbean/xbean-2.5.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

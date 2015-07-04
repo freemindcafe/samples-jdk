@@ -5,7 +5,7 @@
 <!-- build.properties file as "project.name" and "project.version"           -->
 <!-- ======================================================================= -->
 
-<project name="samples-jdk" basedir=".">
+<project name="apache/cxf/wsdl/sample1" basedir=".">
 	
 	<property name="build.dir"            	location="${basedir}/build" />
 	<property name="lib.dir"      			location="${basedir}/lib"/>
@@ -13,8 +13,8 @@
 	<property name="jar.file"        		value="${project.name}"/>
 	
 	<target name="clean">
-		<delete dir="${basedir}/build/generated-src" />
-		<delete dir="${basedir}/build/classes" />
+		<delete dir="${basedir}/build/generated-src/org/apache" />
+		<delete dir="${basedir}/build/classes/org/apache" />
 	</target>
 		
 	<path id="compile.classpath">

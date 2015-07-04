@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!-- ======================================================================= -->
+<!--                      DO NOT MODIFY THIS FILE!                           -->
+<!-- The name of the project and its version number are defined in the       -->
+<!-- build.properties file as "project.name" and "project.version"           -->
+<!-- ======================================================================= -->
+
+<project name="xml/xsd/sample2" basedir="E:\personal\learnings\samples\samples-jdk">
+	
+	<property name="build.dir"            	location="${basedir}/build" />
+	<property name="lib.dir"      			location="${basedir}/lib"/>
+	<property name="jar.file"        		value="${project.name}"/>
+	
+	<target name="clean">
+		<delete dir="${basedir}/build/generated-src/com/freemindcafe/purchase1" />
+		<delete dir="${basedir}/build/classes/com/freemindcafe/purchase1" />
+	</target>
+		
+	<path id="xmlbean.classpath">
+		<fileset dir="${basedir}/lib/xmlbean">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+	
+	<target name="xsdToJava" description="Java classes generation for Xsd files" depends="clean">
+		<taskdef name="xmlbean" classname="org.apache.xmlbeans.impl.tool.XMLBean" classpathref="xmlbean.classpath" />
+		<xmlbean javasource="1.5" srcgendir="${basedir}/build/generated-src" classgendir="${basedir}/build/classes" classpathref="xmlbean.classpath" failonerror="true">
+			<fileset dir="${basedir}/src/com/freemindcafe/xml/xsd/sample2" includes="**/*.xsd **/*.xsdconfig" />
+		</xmlbean>
+	</target>
+	<!-- Code Gen For XSD's -->
+	
+	
+</project>

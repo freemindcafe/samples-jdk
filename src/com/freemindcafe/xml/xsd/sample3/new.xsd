@@ -1,0 +1,21 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.freemindcafe.com/purchase2"
+	targetNamespace="http://www.freemindcafe.com/purchase2" elementFormDefault="qualified">
+
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+     Purchase order schema for Example.com.12
+     Copyright 2000 Example.com. All rights reserved.
+    </xsd:documentation>
+  </xsd:annotation>
+
+  <xsd:element name="message" type="tns:MessageType"/>
+
+  <xsd:complexType name="MessageType">
+    <xsd:sequence>
+      <xsd:element name="giftWrap" type="xsd:boolean"/>
+      <xsd:element ref="tns:comment" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+</xsd:schema>
