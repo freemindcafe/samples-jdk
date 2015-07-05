@@ -8,11 +8,11 @@ DBCP
   - statement caching
   - query parsing
   - sql tracing
+  - Should be done in spring samples
   
-Concurrency
-  - java concurrency in practice examples
-
-com.freemindcafe.socket.simple<
+Beanutils and Proprtyutils example
+  
+com.freemindcafe.socket.simple
   - InetAddress
     - host name
     - host address
@@ -35,13 +35,6 @@ com.freemindcafe.socket.simple<
   - Multicast sockets
   - UDP Socket
   
-- cxf and apache camel transport. Soap should be supported over http, jms, smtp, file, db and what not?
-
-com.freemindcafe.apache.cxf.wsdl.sample2
-  - multiple bindings in wsdl (soap/http)
-  - multiple services in same wsdl
-  - multiple ports in same service
-  
 com.freemindcafe.security
   - Protection Domain
   - Policy file
@@ -49,5 +42,20 @@ com.freemindcafe.security
   - doPrivilidged use
   - class loader and protection domain
   - jar signing use
+  - certificate
+  - signing
+  
+jaxrs + webpage
+	- For upload and download sample
+  
+- cxf and apache camel transport. Soap should be supported over http, jms, smtp, file, db and what not?
+
+com.freemindcafe.apache.cxf.wsdl.sample2
+  - multiple bindings in wsdl (soap/http)
+  - multiple services in same wsdl
+  - multiple ports in same service
+  
+Concurrency
+  - java concurrency in practice examples
 
 ```

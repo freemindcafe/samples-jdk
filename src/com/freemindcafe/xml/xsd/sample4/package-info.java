@@ -1,5 +1,5 @@
 /**
- * \brief  xsd:anyType can contain any payload. \htmlonly <font size="3" color="red">Incomplete ??</font> \endhtmlonly
+ * \brief  xsd:anyType can contain any payload. Reading the anyType payload using XmlObject \htmlonly <font size="3" color="red">Incomplete ??</font> \endhtmlonly
  * 
  * <ul>
  * <li>Do a switch type on XMLObject </li>

@@ -1,5 +1,5 @@
 /**
- * \brief  xsd:anyType can contain any payload.
+ * \brief  xsd:anyType can contain any payload. Schema validation check samples.
  * 
  * <p>With elementFormDefault="qualified" on po.xsd the elements are qualified and they belong to default namespace.</p>
  * <h3>Test1</h3>

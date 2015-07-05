@@ -1,5 +1,5 @@
 /**
- * \brief  'po.xsd' is in 'purchase1' namsespace.
+ * \brief  'po.xsd' is in 'purchase1' namsespace and elementFormDefault is "qualified".
  * 
  * <p>elementFormDefault="qualified"</p>
  * <ul>

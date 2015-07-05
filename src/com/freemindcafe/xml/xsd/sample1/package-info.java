@@ -1,5 +1,5 @@
 /**
- * \brief 'po.xsd' is in 'purchase'namsespace. Without elementFormDefault="qualified" all local elements are in default namespace and not in 
+ * \brief 'po.xsd' is in 'purchase' namsespace. Without elementFormDefault="qualified" all local elements are in default namespace and not in 
  * target namespace.
  * 
  * <p>elementFormDefault="qualified"</p>
