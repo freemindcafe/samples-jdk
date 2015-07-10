@@ -1,5 +1,5 @@
 /**
- * \brief
+ * \brief Samples for protection domain, SecurityManager, AccessController, private key, certificate, jar signing etc
  * 
  * <ul>
  * <li>With out enabling SecurityManager policy file does not come in the picture.</li>
