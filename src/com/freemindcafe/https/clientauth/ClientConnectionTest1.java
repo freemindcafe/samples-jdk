@@ -1,5 +1,7 @@
 package com.freemindcafe.https.clientauth;
 
+import static com.freemindcafe.utils.FileSystemUtils.currentDir;
+
 import java.io.IOException;
 
 import javax.net.ssl.SSLSocketFactory;
@@ -14,9 +16,9 @@ public class ClientConnectionTest1
 {
  static
  {
- System.setProperty("javax.net.ssl.trustStore", "E:/personal/learnings/samples/samples-jdk/src/com/freemindcafe/https/clientauth/clientkeystore1.jks");
+ System.setProperty("javax.net.ssl.trustStore", currentDir()+"/src/com/freemindcafe/https/clientauth/clientkeystore1.jks");
  System.setProperty("javax.net.ssl.trustStorePassword", "password");
- System.setProperty("javax.net.ssl.keyStore", "E:/personal/learnings/samples/samples-jdk/src/com/freemindcafe/https/clientauth/clientkeystore1.jks");
+ System.setProperty("javax.net.ssl.keyStore", currentDir()+"/src/com/freemindcafe/https/clientauth/clientkeystore1.jks");
  System.setProperty("javax.net.ssl.keyStorePassword", "password");
  System.setProperty("javax.net.debug", "ssl:handshake");
  }

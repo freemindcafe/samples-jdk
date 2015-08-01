@@ -22,6 +22,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.converters.reflection.PureJavaReflectionProvider;
 import com.thoughtworks.xstream.io.HierarchicalStreamDriver;
 import com.thoughtworks.xstream.io.json.JettisonMappedXmlDriver;
 import com.thoughtworks.xstream.io.xml.StaxDriver;
@@ -31,24 +32,38 @@ import com.thoughtworks.xstream.mapper.MapperWrapper;
 
 public class SerializationSvc 
 {
-	private String aliasConfFileName = "XMLAliasing.xml";	
-	private static SerializationSvc svc = null;
-	private XStream xstream = new SerializeXStream(new StaxDriver());
-	private XStream jsonxstream = new SerializeXStream(new JettisonMappedXmlDriver());
+	private final String aliasConfFileClassPath;	
+	private final XStream xstream;
+	private final XStream jsonxstream;
 	
-	private SerializationSvc()
+	public SerializationSvc()
 	{
+		this.aliasConfFileClassPath = "/com/freemindcafe/serialization/sample1/XMLAliasing.xml";
+		xstream = new SerializeXStream(new StaxDriver());
+		jsonxstream = new SerializeXStream(new JettisonMappedXmlDriver());
+		jsonxstream.setMode(XStream.NO_REFERENCES);
+		loadSvcAliases();
+
+	}
+	
+	public SerializationSvc(String aliasConfFileClassPath)
+	{
+		this.aliasConfFileClassPath = aliasConfFileClassPath;
+		xstream = new SerializeXStream(new StaxDriver());
+		jsonxstream = new SerializeXStream(new JettisonMappedXmlDriver());	
+		jsonxstream.setMode(XStream.NO_REFERENCES);
 		loadSvcAliases();
 	}
-	public static SerializationSvc getSerializationSvc()
+	
+	public SerializationSvc(String aliasConfFileClassPath, XStream xstream, XStream jsonxstream)
 	{
-		if(svc == null)
-		{
-			svc = new SerializationSvc();
-			svc.jsonxstream.setMode(XStream.NO_REFERENCES);
-		}
-		return svc;
+		this.aliasConfFileClassPath = aliasConfFileClassPath;
+		this.xstream = xstream;
+		this.jsonxstream = jsonxstream;	
+		jsonxstream.setMode(XStream.NO_REFERENCES);		
+		loadSvcAliases();
 	}
+	
 	public void addAlias(String alias, Class klass)
 	{
 		xstream.alias(alias, klass);
@@ -93,7 +108,7 @@ public class SerializationSvc
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 
 		DocumentBuilder db = dbf.newDocumentBuilder();
-		InputStream inputStream = SerializationSvc.class.getResourceAsStream("/com/freemindcafe/serialization/sample1/XMLAliasing.xml");
+		InputStream inputStream = SerializationSvc.class.getResourceAsStream(aliasConfFileClassPath);
 		Document dom = db.parse(inputStream);
 		NodeList nodeL = dom.getElementsByTagName("class");
 		
@@ -128,56 +143,9 @@ public class SerializationSvc
 		}
 	}
 	public String getAliasConfFileName() {
-		return aliasConfFileName;
+		return aliasConfFileClassPath;
 	}
 	
-	/**
-	 * re loads the alias information from the configuration xml file.
-	 */
-	public void setAliasConfFileName(String aliasConfFileName) {
-		this.aliasConfFileName = aliasConfFileName;
-		loadSvcAliases();
-	}
-	
-	/**
-	 * extends xstream and over rides mapper to use simple classname if the alias is not used.
-	 * @author KANAG00R
-	 *
-	 */
-	class SerializeXStream extends XStream
-	{
-		SerializeXStream(HierarchicalStreamDriver hierarchicalStreamDriver)
-		{
-			super(hierarchicalStreamDriver);
-			
-		}
-
-        @Override
-        protected MapperWrapper wrapMapper(MapperWrapper next) {
-            return new ClassMapper(next);
-        }
-       
-    }
-
-	class ClassMapper extends ClassAliasingMapper
-	{
-	
-	        public ClassMapper(Mapper wrapped) {
-	            super(wrapped);
-	        }
-	
-	        @Override
-	        public String serializedClass(Class clazz) {
-	        	String name = super.serializedClass(clazz);
-	            if (clazz.getName().equals(name)) 
-	            {
-	              return clazz.getSimpleName();
-	            } else {
-	              return name;
-	            } 
-	        }                      
-	}   
-
 	public String deCompress(byte[] bytes)
 	{ 
 		try 
@@ -223,6 +191,6 @@ public class SerializationSvc
 			throw new RuntimeException("Could not compress the string. "+e);
 		}	   
 	 }
-
-
+	
 }
+

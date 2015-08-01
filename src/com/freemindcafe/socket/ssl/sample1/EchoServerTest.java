@@ -1,5 +1,6 @@
 package com.freemindcafe.socket.ssl.sample1;
 
+import static com.freemindcafe.utils.FileSystemUtils.currentDir;
 import javax.net.ssl.SSLServerSocket;
 import javax.net.ssl.SSLServerSocketFactory;
 import javax.net.ssl.SSLSocket;
@@ -17,11 +18,11 @@ public class EchoServerTest {
 		try {
 
 			System.setProperty(
-					"javax.net.ssl.trustStore","E:/personal/learnings/samples/samples-jdk/src/com/freemindcafe/socket/ssl/sample1/serverkeystore.jks");
+					"javax.net.ssl.trustStore",currentDir()+"/src/com/freemindcafe/socket/ssl/sample1/serverkeystore.jks");
 			System.setProperty("javax.net.ssl.trustStorePassword", "password");
 			System.setProperty(
 					"javax.net.ssl.keyStore",
-					"E:/personal/learnings/samples/samples-jdk/src/com/freemindcafe/socket/ssl/sample1/serverkeystore.jks");
+					currentDir()+"/src/com/freemindcafe/socket/ssl/sample1/serverkeystore.jks");
 			System.setProperty("javax.net.ssl.keyStorePassword", "password");
 			System.setProperty("javax.net.debug", "ssl:handshake");
 			

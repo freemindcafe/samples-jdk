@@ -13,8 +13,8 @@ public class Sample {
 		mappings.put(1, "one");
 		mappings.put(2, "two");
 		
-		String xml = SerializationSvc.getSerializationSvc().toXML(mappings);
-		String json = SerializationSvc.getSerializationSvc().toJSON(mappings);
+		String xml = new SerializationSvc().toXML(mappings);
+		String json = new SerializationSvc().toJSON(mappings);
 
 		
 		System.out.println(xml);
@@ -30,8 +30,8 @@ public class Sample {
 		mappings.put(2, "two");
 		wrapper.mappings = mappings;
 		
-		String xml = SerializationSvc.getSerializationSvc().toXML(wrapper);
-		String json = SerializationSvc.getSerializationSvc().toJSON(wrapper);
+		String xml = new SerializationSvc().toXML(wrapper);
+		String json = new SerializationSvc().toJSON(wrapper);
 
 		
 		System.out.println(xml);

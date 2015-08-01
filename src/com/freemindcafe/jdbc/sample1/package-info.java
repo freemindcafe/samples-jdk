@@ -1,5 +1,5 @@
 /**
- * \brief global temporary table with on commit preserve rows;
+ * \brief global temporary table with on commit preserve rows; \htmlonly <font size="3" color="red">Incomplete ??</font> \endhtmlonly
  * 
  * <h3>Concepts</h3>
  * <p>

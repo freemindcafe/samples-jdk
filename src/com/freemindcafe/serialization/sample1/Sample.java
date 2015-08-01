@@ -28,14 +28,14 @@ public class Sample {
 		nikhil.reportingManager = shiv;
 		nikhil.functionalManager = vikas;
 		
-		String xml = SerializationSvc.getSerializationSvc().toXML(nikhil);
-		String json = SerializationSvc.getSerializationSvc().toJSON(nikhil);
+		String xml = new SerializationSvc().toXML(nikhil);
+		String json = new SerializationSvc().toJSON(nikhil);
 		
 		System.out.println(xml);
 		System.out.println(json);
 		
-		Employee nikhilFromXml = (Employee)SerializationSvc.getSerializationSvc().fromXML(xml);
-		Employee nikhilFromJson = (Employee)SerializationSvc.getSerializationSvc().fromJSON(json);
+		Employee nikhilFromXml = (Employee)new SerializationSvc().fromXML(xml);
+		Employee nikhilFromJson = (Employee)new SerializationSvc().fromJSON(json);
 		
 		Assert.assertTrue(nikhilFromXml.joiningDate.equals(nikhil.joiningDate));
 		Assert.assertTrue(nikhilFromXml.employeeId == nikhil.employeeId);

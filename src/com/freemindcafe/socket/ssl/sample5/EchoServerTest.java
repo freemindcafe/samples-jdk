@@ -1,5 +1,6 @@
 package com.freemindcafe.socket.ssl.sample5;
 
+import static com.freemindcafe.utils.FileSystemUtils.currentDir;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -27,11 +28,11 @@ public class EchoServerTest {
 	public void ssl_server_that_demands_client_auth_uses_custom_key_manager() throws Exception{
 		
 		System.setProperty(
-				"javax.net.ssl.trustStore","E:/personal/learnings/samples/samples-jdk/src/com/freemindcafe/socket/ssl/sample5/serverkeystore.jks");
+				"javax.net.ssl.trustStore",currentDir()+"/src/com/freemindcafe/socket/ssl/sample5/serverkeystore.jks");
 		System.setProperty("javax.net.ssl.trustStorePassword", "password");
 //		System.setProperty(
 //				"javax.net.ssl.keyStore",
-//				"E:/personal/learnings/samples/samples-jdk/src/com/freemindcafe/socket/ssl/sample5/serverkeystore.jks");
+//				currentDir()+"/src/com/freemindcafe/socket/ssl/sample5/serverkeystore.jks");
 //		System.setProperty("javax.net.ssl.keyStorePassword", "password");
 
 		System.setProperty("javax.net.debug", "ssl:handshake");
@@ -41,8 +42,8 @@ public class EchoServerTest {
 //		
 		char[] passphrase = "password".toCharArray();
 //		
-		ks.load(new FileInputStream("E:/personal/learnings/samples/samples-jdk/src/com/freemindcafe/socket/ssl/sample5/serverkeystore.jks"), passphrase);
-//		ts.load(new FileInputStream("E:/personal/learnings/samples/samples-jdk/src/com/freemindcafe/socket/ssl/sample5/serverkeystore.jks"), passphrase);
+		ks.load(new FileInputStream(currentDir()+"/src/com/freemindcafe/socket/ssl/sample5/serverkeystore.jks"), passphrase);
+//		ts.load(new FileInputStream(currentDir()+"/src/com/freemindcafe/socket/ssl/sample5/serverkeystore.jks"), passphrase);
 //		
 		KeyManagerFactory kmf = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
 		kmf.init(ks, passphrase);

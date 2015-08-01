@@ -23,7 +23,7 @@ public class Sample {
 		String jsonUsingJackson = JSONParserUtil.objectToJson(workerUri, Map.class);
 		System.out.println(jsonUsingJackson);
 		
-		String jsonUsingJettison = SerializationSvc.getSerializationSvc().toJSON(workerUri);
+		String jsonUsingJettison = new SerializationSvc().toJSON(workerUri);
 		System.out.println(jsonUsingJettison);		
 		
 		Map<String, String> deserializedWorkerUri = (Map)JSONParserUtil.jsonToObject(jsonUsingJackson, Map.class);
@@ -50,7 +50,7 @@ public class Sample {
 		String jsonUsingJackson = JSONParserUtil.objectToJson(uris, List.class);
 		System.out.println(jsonUsingJackson);
 		
-		String jsonUsingJettison = SerializationSvc.getSerializationSvc().toJSON(uris);
+		String jsonUsingJettison = new SerializationSvc().toJSON(uris);
 		System.out.println(jsonUsingJettison);		
 		
 	}	
