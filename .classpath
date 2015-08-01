@@ -34,5 +34,10 @@
 	<classpathentry kind="lib" path="lib/serialization/xstream-1.4.3.jar"/>
 	<classpathentry kind="lib" path="lib/velocity/velocity-1.4-1.4.jar"/>
 	<classpathentry kind="lib" path="lib/xmlbean/xbean-2.5.jar"/>
+	<classpathentry kind="lib" path="lib/jdbc/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="lib/jdbc/org.springframework.jdbc-3.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/jdbc/org.springframework.core-3.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/jdbc/org.springframework.transaction-3.0.2.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/jdbc/org.springframework.beans-3.0.2.RELEASE.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
