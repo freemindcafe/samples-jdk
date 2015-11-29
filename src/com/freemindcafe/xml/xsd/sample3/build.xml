@@ -5,7 +5,7 @@
 <!-- build.properties file as "project.name" and "project.version"           -->
 <!-- ======================================================================= -->
 
-<project name="xml/xsd/sample3" basedir="E:\personal\learnings\samples\samples-jdk">
+<project name="xml/xsd/sample3" basedir="../../../../../../.">
 	
 	<property name="build.dir"            	location="${basedir}/build" />
 	<property name="lib.dir"      			location="${basedir}/lib"/>
