@@ -8,4 +8,8 @@
 /core-lib
 /tomcat-lib
 /src/com/freemindcafe/security/sample2
+/src/com/freemindcafe/java8
+/apt-generated-src
+/.factorypath
+/.settings
 

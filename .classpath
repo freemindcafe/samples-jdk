@@ -39,5 +39,10 @@
 	<classpathentry kind="lib" path="lib/jdbc/org.springframework.core-3.0.2.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/jdbc/org.springframework.transaction-3.0.2.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/jdbc/org.springframework.beans-3.0.2.RELEASE.jar"/>
+	<classpathentry kind="src" path="apt-generated-src">
+		<attributes>
+			<attribute name="optional" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
