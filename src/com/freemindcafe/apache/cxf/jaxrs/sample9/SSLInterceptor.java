@@ -1,4 +1,4 @@
-package com.freemindcafe.apache.cxf.jaxrs;
+package com.freemindcafe.apache.cxf.jaxrs.sample9;
 
 import java.security.cert.X509Certificate;
 

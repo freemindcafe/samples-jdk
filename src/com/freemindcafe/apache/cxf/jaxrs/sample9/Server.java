@@ -1,4 +1,4 @@
-package com.freemindcafe.apache.cxf.jaxrs;
+package com.freemindcafe.apache.cxf.jaxrs.sample9;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -22,10 +22,9 @@ import org.apache.cxf.interceptor.LoggingInInterceptor;
 import org.apache.cxf.interceptor.LoggingOutInterceptor;
 import org.apache.cxf.jaxrs.JAXRSServerFactoryBean;
 import org.apache.cxf.jaxws.JaxWsServerFactoryBean;
+import org.apache.cxf.phase.Phase;
 import org.apache.cxf.transport.http_jetty.JettyHTTPServerEngineFactory;
 import org.junit.Test;
-
-import com.freemindcafe.apache.cxf.wsdl.sample1.SSLInterceptor;
 
 public class Server {
 	
@@ -54,6 +53,13 @@ public class Server {
 	}
 	
 	@Test
+	/*
+	 * Invocation order of interceptors depends on the phase.
+	 * Please refer to http://cxf.apache.org/docs/interceptors.html for the Phase ordering
+	 * Since Phase.PRE_PROTOCOL comes before Phase.UNMARSHAL, SSL interceptor will be invoked first.
+	 * If two interceptors share the same Phase, then they will be invoked in the order they
+	 * are attched to the bus. Whichsoever is atatched first is invoked first.
+	 */
 	public void start_server_with_2_way_ssl() throws Exception{		
 		OrderInfoImpl implementor = new OrderInfoImpl();
 		JAXRSServerFactoryBean svrFactory = new JAXRSServerFactoryBean();
@@ -85,14 +91,14 @@ public class Server {
         	TLSServerParameters tlsParams = new TLSServerParameters();
             KeyStore keyStore = KeyStore.getInstance("JKS");
             String password = "password";
-            File keystoreFile = new File("src\\com\\freemindcafe\\apache\\cxf\\jaxrs\\serverkeystore.jks");
+            File keystoreFile = new File("src\\com\\freemindcafe\\apache\\cxf\\jaxrs\\sample9\\serverkeystore.jks");
             keyStore.load(new FileInputStream(keystoreFile), password.toCharArray());
             KeyManagerFactory keyFactory = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
             keyFactory.init(keyStore, password.toCharArray());
             KeyManager[] km = keyFactory.getKeyManagers();
             tlsParams.setKeyManagers(km);
  
-            File truststoreFile = new File("src\\com\\freemindcafe\\apache\\cxf\\jaxrs\\serverkeystore.jks");
+            File truststoreFile = new File("src\\com\\freemindcafe\\apache\\cxf\\jaxrs\\sample9\\serverkeystore.jks");
             keyStore.load(new FileInputStream(truststoreFile), password.toCharArray());
             TrustManagerFactory trustFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
             trustFactory.init(keyStore);

@@ -1,4 +1,4 @@
-package com.freemindcafe.apache.cxf.jaxrs;
+package com.freemindcafe.apache.cxf.jaxrs.sample9;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,20 +8,21 @@ public class OrderInfoImpl implements OrderInfo {
     List <Order> list = new ArrayList<Order>();
  
     public OrderInfoImpl(){
-        Order order = new Order();
-        order.setOrderId(1);
-        order.setItemName("Soap");
-        order.setQuantity(120);
-        order.setCustomerName("Sandeep");
-        order.setShippingAddress("Gurgaon");
-        list.add(0, order);
+        Order order1 = new Order();
+        order1.setOrderId(1);
+        order1.setItemName("Soap");
+        order1.setQuantity(120);
+        order1.setCustomerName("Sandeep");
+        order1.setShippingAddress("Gurgaon");
+        list.add(0, order1);
  
-        order.setOrderId(2);
-        order.setItemName("Shampoo");
-        order.setQuantity(50);
-        order.setCustomerName("Sandeep");
-        order.setShippingAddress("Gurgaon");
-        list.add(1, order);
+        Order order2 = new Order();
+        order2.setOrderId(2);
+        order2.setItemName("Shampoo");
+        order2.setQuantity(50);
+        order2.setCustomerName("Sandeep");
+        order2.setShippingAddress("Gurgaon");
+        list.add(1, order2);
     }
  
     @Override

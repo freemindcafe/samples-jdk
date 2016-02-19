@@ -5,7 +5,9 @@
 <!-- build.properties file as "project.name" and "project.version"           -->
 <!-- ======================================================================= -->
 
-<project name="apache/cxf/wsdl/sample1" basedir=".">
+<project name="apache/cxf/wsdl/sample1" basedir="../../../../../../../.">
+	
+	<echo>${basedir}</echo>
 	
 	<property name="build.dir"            	location="${basedir}/build" />
 	<property name="lib.dir"      			location="${basedir}/lib"/>
